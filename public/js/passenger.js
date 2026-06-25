@@ -7,24 +7,49 @@ L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 ).addTo(map);
 
-let marker;
+const markers = {};
 
-socket.on("busLocation",(data)=>{
+socket.on("busLocation", (data) => {
 
-    if(marker){
+    const {
+        busId,
+        latitude,
+        longitude
+    } = data;
 
-        marker.setLatLng([
-            data.latitude,
-            data.longitude
+    if(markers[busId]) {
+
+        markers[busId].setLatLng([
+            latitude,
+            longitude
         ]);
 
-    }else{
+    } else {
 
-        marker = L.marker([
-            data.latitude,
-            data.longitude
-        ]).addTo(map);
+        markers[busId] = L.marker([
+            latitude,
+            longitude
+        ])
+        .addTo(map)
+        .bindPopup(busId);
 
     }
 
 });
+
+const busList =
+document.getElementById("busList");
+
+function updateBusList() {
+
+    busList.innerHTML = "";
+
+    Object.keys(markers)
+    .forEach((busId) => {
+
+        busList.innerHTML +=
+        `<p>${busId}</p>`;
+
+    });
+
+}
