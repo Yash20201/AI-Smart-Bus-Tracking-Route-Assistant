@@ -11,6 +11,7 @@ const authRoutes = require("./routes/authRoutes");
 const busRoutes = require("./routes/busRoutes");
 const routeRoutes = require("./routes/routeRoutes");
 const path = require("path");
+const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 const server = http.createServer(app);
@@ -40,6 +41,8 @@ app.get("/", (req, res) => {
     res.send("Welcome to the Bus Tracking System API");
 }
 );
+app.use("/api/admin", adminRoutes);
+
 
 connectDB();
 
