@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Register - Smart Bus Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="auth-page">
 
-<h1>Register</h1>
+<div class="auth-card">
+    <div class="brand">🚌 Smart Bus Tracker</div>
+    <h1>Create an account</h1>
+    <p class="subtitle">Choose your role to get started.</p>
 
-<input id="name" placeholder="Name">
-<input id="email" placeholder="Email">
-<input id="password" placeholder="Password">
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email" type="email">
+    <input id="password" type="password" placeholder="Password">
 
-<select id="role">
-    <option value="passenger">Passenger</option>
-    <option value="driver">Driver</option>
-</select>
+    <select id="role">
+        <option value="passenger">Passenger</option>
+        <option value="driver">Driver</option>
+        <option value="admin">Admin</option>
+    </select>
 
-<button onclick="register()">
-Register
-</button>
+    <button onclick="register()" style="width:100%">Register</button>
+
+    <p class="switch-link">Already have an account? <a href="/login.html">Login</a></p>
+</div>
 
 <script src="/js/register.js"></script>
 

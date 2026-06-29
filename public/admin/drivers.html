@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drivers</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<main class="container">
+    <h1>Drivers</h1>
+    <p class="hint">New drivers can be added via the <a href="/register.html">registration page</a> by selecting the "Driver" role.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Assigned Bus</th>
+            </tr>
+        </thead>
+        <tbody id="driverTableBody"></tbody>
+    </table>
+</main>
+
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/drivers.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => renderNav("drivers.html"));
+</script>
+
+</body>
+</html>

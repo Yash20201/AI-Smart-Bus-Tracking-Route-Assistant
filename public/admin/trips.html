@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trips</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<main class="container">
+    <h1>Trips</h1>
+
+    <div class="card">
+        <h2>Schedule Trip</h2>
+        <select id="tripBusId"></select>
+        <select id="tripRouteId"></select>
+        <select id="tripDriverId"></select>
+        <button onclick="createTrip()">Create Trip</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Bus</th>
+                <th>Route</th>
+                <th>Driver</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tripTableBody"></tbody>
+    </table>
+</main>
+
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/trips.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => renderNav("trips.html"));
+</script>
+
+</body>
+</html>

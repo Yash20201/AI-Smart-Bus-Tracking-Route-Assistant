@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<main class="container">
+    <h1>Users</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+    </table>
+</main>
+
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/users.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => renderNav("users.html"));
+</script>
+
+</body>
+</html>

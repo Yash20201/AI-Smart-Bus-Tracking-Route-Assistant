@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Login - Smart Bus Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="auth-page">
 
-<h1>Login</h1>
+<div class="auth-card">
+    <div class="brand">🚌 Smart Bus Tracker</div>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Log in to track buses, manage routes, or share your live location.</p>
 
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
+    <input id="email" placeholder="Email" type="email">
+    <input id="password" type="password" placeholder="Password">
 
-<button onclick="login()">
-Login
-</button>
+    <button onclick="login()" style="width:100%">Login</button>
+
+    <p class="switch-link">Don't have an account? <a href="/register.html">Register</a></p>
+</div>
 
 <script src="/js/login.js"></script>
 
