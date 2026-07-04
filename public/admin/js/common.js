@@ -1,5 +1,6 @@
 const API_BASE = "/api";
 
+<<<<<<< HEAD
 function getToken() { return localStorage.getItem("token"); }
 
 function requireAuth() {
@@ -10,17 +11,49 @@ function requireAuth() {
         window.location.href = "/login.html";
         return null;
     }
+=======
+function getToken() {
+    return localStorage.getItem("token");
+}
+
+function requireAuth() {
+    const token = getToken();
+    const role = localStorage.getItem("role");
+
+    if (!token) {
+        window.location.href = "/login.html";
+        return null;
+    }
+
+    if (role && role !== "admin") {
+        alert("Admin access only");
+        window.location.href = "/login.html";
+        return null;
+    }
+
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     return token;
 }
 
 function logout() {
+<<<<<<< HEAD
     localStorage.clear();
+=======
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("name");
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     window.location.href = "/login.html";
 }
 
 async function apiFetch(path, options = {}) {
     const token = getToken();
+<<<<<<< HEAD
     const res = await fetch(`${API_BASE}${path}`, {
+=======
+
+    const response = await fetch(`${API_BASE}${path}`, {
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         ...options,
         headers: {
             "Content-Type": "application/json",
@@ -28,6 +61,7 @@ async function apiFetch(path, options = {}) {
             ...(options.headers || {})
         }
     });
+<<<<<<< HEAD
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.message || `Request failed (${res.status})`);
     return data;
@@ -160,9 +194,50 @@ function renderNav(active) {
                 </a>`).join("")}
         </div>
         <button class="logout-btn" onclick="logout()">🚪 Sign out</button>`;
+=======
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+        throw new Error(data.message || "Request failed");
+    }
+
+    return data;
+}
+
+function renderNav(active) {
+    const links = [
+        { href: "dashboard.html", label: "Dashboard" },
+        { href: "buses.html", label: "Buses" },
+        { href: "drivers.html", label: "Drivers" },
+        { href: "routes.html", label: "Routes" },
+        { href: "trips.html", label: "Trips" },
+        { href: "users.html", label: "Users" },
+        { href: "settings.html", label: "Settings" }
+    ];
+
+    const nav = document.getElementById("nav");
+
+    if (!nav) {
+        return;
+    }
+
+    nav.innerHTML = `
+        <div class="nav-brand">🚌 Bus Tracker Admin</div>
+        <div class="nav-links">
+            ${links.map((link) => `
+                <a href="${link.href}" class="${active === link.href ? "active" : ""}">${link.label}</a>
+            `).join("")}
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    `;
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     requireAuth();
+<<<<<<< HEAD
     injectModal();
+=======
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 });

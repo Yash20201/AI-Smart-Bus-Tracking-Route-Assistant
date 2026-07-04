@@ -1,6 +1,7 @@
 const Route = require('../models/Route');
 const etaService = require('./etaService');
 
+<<<<<<< HEAD
 function escapeRegex(str) {
     return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -9,6 +10,12 @@ exports.suggestBestRoute = async (startPoint, endPoint) => {
     const routes = await Route.find({
         startPoint: new RegExp(escapeRegex(startPoint), 'i'),
         endPoint: new RegExp(escapeRegex(endPoint), 'i')
+=======
+exports.suggestBestRoute = async (startPoint, endPoint) => {
+    const routes = await Route.find({
+        startPoint: new RegExp(startPoint, 'i'),
+        endPoint: new RegExp(endPoint, 'i')
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     });
 
     if (routes.length === 0) {

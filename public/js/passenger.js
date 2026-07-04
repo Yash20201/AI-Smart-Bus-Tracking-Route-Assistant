@@ -12,6 +12,7 @@ function logoutUser() {
     window.location.href = "/login.html";
 }
 
+<<<<<<< HEAD
 function escapeHtml(str) {
     return String(str ?? "")
         .replace(/&/g, "&amp;")
@@ -42,6 +43,20 @@ async function apiPost(path, body) {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.message || "Request failed");
     return data;
+=======
+async function apiGet(path) {
+    const response = await fetch(`/api${path}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error("Request failed: " + path);
+    }
+
+    return response.json();
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 }
 
 const socket = io();
@@ -55,7 +70,10 @@ L.tileLayer(
 
 const markers = {};
 const liveBuses = {};
+<<<<<<< HEAD
 const openEta = {};
+=======
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 
 function renderLiveBusList() {
     const container = document.getElementById("liveBusList");
@@ -69,6 +87,7 @@ function renderLiveBusList() {
     container.innerHTML = ids.map((busId) => `
         <div class="live-bus-item">
             <span class="live-dot"></span>
+<<<<<<< HEAD
             <strong>${escapeHtml(busId)}</strong>
             <button class="eta-btn" onclick="toggleEta('${busId}')">⏱ ETA</button>
         </div>
@@ -120,6 +139,11 @@ function showEta(busId, eta) {
     } else {
         el.textContent = "🤖 " + (eta.message || "ETA not available for this bus yet.");
     }
+=======
+            <span>${busId}</span>
+        </div>
+    `).join("");
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 }
 
 socket.on("busLocation", (data) => {
@@ -133,7 +157,11 @@ socket.on("busLocation", (data) => {
     } else {
         markers[busId] = L.marker([latitude, longitude])
             .addTo(map)
+<<<<<<< HEAD
             .bindPopup(escapeHtml(busId));
+=======
+            .bindPopup(busId);
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     }
 });
 
@@ -141,7 +169,11 @@ function focusBus(busId) {
     const bus = liveBuses[busId];
 
     if (!bus) {
+<<<<<<< HEAD
         showTopBar("This bus isn't sharing its location right now.");
+=======
+        alert("This bus isn't sharing its location right now.");
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         return;
     }
 
@@ -149,10 +181,13 @@ function focusBus(busId) {
     markers[busId].openPopup();
 }
 
+<<<<<<< HEAD
 function showTopBar(text) {
     document.getElementById("topBarText").innerText = text;
 }
 
+=======
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 async function loadRoutes() {
     const container = document.getElementById("routeList");
 
@@ -165,9 +200,15 @@ async function loadRoutes() {
         }
 
         container.innerHTML = routes.map((route) => `
+<<<<<<< HEAD
             <div class="route-item" data-route-id="${route._id}" onclick="selectRoute('${route._id}', '${escapeHtml(route.routeNumber)}')">
                 <strong>${escapeHtml(route.routeNumber)}</strong><br>
                 ${escapeHtml(route.startPoint)} → ${escapeHtml(route.endPoint)}
+=======
+            <div class="route-item" data-route-id="${route._id}" onclick="selectRoute('${route._id}', '${route.routeNumber}')">
+                <strong>${route.routeNumber}</strong><br>
+                ${route.startPoint} → ${route.endPoint}
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
             </div>
         `).join("");
     } catch (error) {
@@ -182,17 +223,29 @@ async function selectRoute(routeId, routeNumber) {
     const clicked = document.querySelector(`.route-item[data-route-id="${routeId}"]`);
     if (clicked) clicked.classList.add("active");
 
+<<<<<<< HEAD
     showTopBar(`Route ${routeNumber} - looking for active buses...`);
+=======
+    document.getElementById("topBarText").innerText = `Route ${routeNumber} - looking for active buses...`;
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 
     try {
         const buses = await apiGet(`/passenger/routes/${routeId}/buses`);
 
         if (buses.length === 0) {
+<<<<<<< HEAD
             showTopBar(`Route ${routeNumber} - no active buses right now`);
             return;
         }
 
         showTopBar(`Route ${routeNumber} - ${buses.length} bus(es) assigned`);
+=======
+            document.getElementById("topBarText").innerText = `Route ${routeNumber} - no active buses right now`;
+            return;
+        }
+
+        document.getElementById("topBarText").innerText = `Route ${routeNumber} - ${buses.length} bus(es) assigned`;
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 
         const firstWithLiveLocation = buses
             .map((bus) => bus.busNumber)
@@ -202,11 +255,16 @@ async function selectRoute(routeId, routeNumber) {
             focusBus(firstWithLiveLocation);
         }
     } catch (error) {
+<<<<<<< HEAD
         showTopBar(`Couldn't load buses for route ${routeNumber}`);
+=======
+        document.getElementById("topBarText").innerText = `Couldn't load buses for route ${routeNumber}`;
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         console.error(error);
     }
 }
 
+<<<<<<< HEAD
 /* ── AI ROUTE ASSISTANT ── */
 async function findBestRoute() {
     const from = document.getElementById("aiFrom").value.trim();
@@ -253,4 +311,6 @@ async function findBestRoute() {
     }
 }
 
+=======
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 document.addEventListener("DOMContentLoaded", loadRoutes);

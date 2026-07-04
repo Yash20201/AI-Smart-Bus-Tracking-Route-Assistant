@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <title>Routes – Bus Tracker Admin</title>
     <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
@@ -63,5 +64,45 @@
 <script src="/admin/js/common.js"></script>
 <script src="/admin/js/routes.js"></script>
 <script>document.addEventListener("DOMContentLoaded",()=>renderNav("routes.html"));</script>
+=======
+    <title>Routes</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<main class="container">
+    <h1>Routes</h1>
+
+    <div class="card">
+        <h2>Add Route</h2>
+        <input id="routeNumber" placeholder="Route Number">
+        <input id="startPoint" placeholder="Start Point">
+        <input id="endPoint" placeholder="End Point">
+        <input id="stops" placeholder="Stops (comma separated)">
+        <button onclick="createRoute()">Add Route</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Route Number</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Stops</th>
+            </tr>
+        </thead>
+        <tbody id="routeTableBody"></tbody>
+    </table>
+</main>
+
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/routes.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => renderNav("routes.html"));
+</script>
+
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 </body>
 </html>

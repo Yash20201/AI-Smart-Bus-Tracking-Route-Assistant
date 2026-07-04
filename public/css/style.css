@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ═══════════════════════════════════════════════
    SMART BUS TRACKER — Global Styles
    Palette: Deep navy bg · Indigo primary · Cyan accent
@@ -39,10 +40,92 @@ body.auth-page {
     flex-direction: column;
     justify-content: center;
     padding: 60px 56px;
+=======
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --accent: #06b6d4;
+    --bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --text: #1e1b2e;
+    --muted: #6b7280;
+    --border: #e6e8f0;
+    --success: #16a34a;
+    --danger: #e11d48;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Inter", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #fafbff;
+    transition: border-color 0.15s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.28);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Auth pages (login/register) */
+body.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #6366f1 0%, #312e81 55%, #1e1b4b 100%);
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     position: relative;
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 .auth-left::before {
     content: '';
     position: absolute;
@@ -198,11 +281,69 @@ body.auth-page {
 }
 
 .auth-switch a {
+=======
+body.auth-page::before {
+    content: "🚌";
+    position: absolute;
+    font-size: 14rem;
+    opacity: 0.06;
+    top: -40px;
+    right: -40px;
+    transform: rotate(-12deg);
+}
+
+.auth-card {
+    background: var(--card-bg);
+    padding: 38px 36px;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-card .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.auth-card h1 {
+    margin-bottom: 4px;
+}
+
+.auth-card .subtitle {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card button {
+    max-width: 100%;
+}
+
+.auth-card p.switch-link {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 16px;
+}
+
+.auth-card p.switch-link a {
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
 }
 
+<<<<<<< HEAD
 @media (max-width: 700px) {
     body.auth-page { grid-template-columns: 1fr; }
     .auth-left { display: none; }
@@ -210,11 +351,15 @@ body.auth-page {
 }
 
 /* ── DRIVER PAGE ─────────────────────────────── */
+=======
+/* Driver page */
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 body.driver-body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     background: linear-gradient(145deg, #0f0e1a 0%, #1e1b4b 60%, #0c3366 100%);
 }
 
@@ -315,3 +460,68 @@ body.driver-body {
 }
 
 .driver-logout:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+=======
+    background: linear-gradient(160deg, #0f172a, #1e1b4b);
+}
+
+.driver-page {
+    max-width: 440px;
+    width: 100%;
+    margin: 20px;
+    background: var(--card-bg);
+    padding: 34px;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.driver-page .icon-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.driver-page input,
+.driver-page button {
+    max-width: 100%;
+}
+
+#status {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f3f4f6;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+#status.active {
+    color: var(--success);
+    font-weight: 600;
+    background: #ecfdf3;
+}
+
+.logout-link {
+    margin-top: 16px;
+    background: transparent !important;
+    color: var(--danger) !important;
+    border: 1.5px solid var(--danger) !important;
+    box-shadow: none !important;
+}
+
+/* Passenger page (map layout lives mostly in passenger.html now) */
+#busList .bus-chip {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 0.85rem;
+}
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676

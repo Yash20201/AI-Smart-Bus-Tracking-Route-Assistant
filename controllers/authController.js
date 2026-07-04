@@ -43,6 +43,7 @@ exports.login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
+<<<<<<< HEAD
         const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.json({
@@ -53,6 +54,12 @@ exports.login = async (req, res) => {
                 email: user.email,
                 role: user.role
             }
+=======
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.json({
+            token
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         });
     }   catch (error) { 
         res.status(500).json({ message: error.message })        

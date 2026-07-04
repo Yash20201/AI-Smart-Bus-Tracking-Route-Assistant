@@ -1,13 +1,20 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Panel — Smart Bus Tracker</title>
+=======
+<html>
+<head>
+    <title>Driver Panel - Smart Bus Tracker</title>
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="driver-body">
 
+<<<<<<< HEAD
 <div class="driver-card">
     <div class="driver-card-top">
         <h1>🚍 Driver Panel</h1>
@@ -22,9 +29,34 @@
         <div id="status">Not sharing location yet</div>
         <button class="driver-logout" onclick="logoutUser()">Sign out</button>
     </div>
+=======
+<div class="driver-page">
+    <div class="icon-badge">🚍</div>
+    <h1>Driver Panel</h1>
+    <p style="color:#6b7280;font-size:0.9rem;margin-bottom:20px;">Enter your bus number and start sharing your live location with passengers.</p>
+
+    <input
+        id="busId"
+        placeholder="Bus Number (e.g. 12)"
+    />
+
+    <button id="startBtn" style="width:100%">
+    Start Tracking
+    </button>
+
+    <p id="status">
+    Location not started
+    </p>
+
+    <button onclick="logoutUser()" class="logout-link" style="width:100%">Logout</button>
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/driver.js"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 </body>
 </html>

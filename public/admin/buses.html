@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <title>Buses – Bus Tracker Admin</title>
     <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
@@ -92,5 +93,58 @@
 <script src="/admin/js/common.js"></script>
 <script src="/admin/js/buses.js"></script>
 <script>document.addEventListener("DOMContentLoaded",()=>renderNav("buses.html"));</script>
+=======
+    <title>Manage Buses</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<main class="container">
+    <h1>Buses</h1>
+
+    <div class="card">
+        <h2>Add Bus</h2>
+        <input id="busNumber" placeholder="Bus Number">
+        <input id="busName" placeholder="Bus Name">
+        <button onclick="createBus()">Add Bus</button>
+    </div>
+
+    <div class="card">
+        <h2>Assign Driver</h2>
+        <select id="assignBusId"></select>
+        <select id="assignDriverId"></select>
+        <button onclick="assignDriver()">Assign</button>
+    </div>
+
+    <div class="card">
+        <h2>Assign Route</h2>
+        <select id="routeBusId"></select>
+        <select id="routeSelectId"></select>
+        <button onclick="assignRoute()">Assign</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Bus Name</th>
+                <th>Driver</th>
+                <th>Route</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="busTableBody"></tbody>
+    </table>
+</main>
+
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/buses.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => renderNav("buses.html"));
+</script>
+
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 </body>
 </html>

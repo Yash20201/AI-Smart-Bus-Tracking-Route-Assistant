@@ -60,6 +60,7 @@ exports.getDashboard = async (req, res) => {
         });
 
     }
+<<<<<<< HEAD
 };
 
 exports.getUsers = async (req, res) => {
@@ -84,3 +85,6 @@ exports.deleteUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+=======
+};
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676

@@ -33,5 +33,26 @@ const busSchema = new mongoose.Schema(
 );
 
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Bus', busSchema);
+=======
+busLocationSchema = new mongoose.Schema(
+    {
+        busId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Bus",
+    },
+
+    latitude: Number,
+    longitude: Number,
+
+    updatedAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+module.exports = mongoose.model('Bus', busSchema);
+module.exports = mongoose.model('BusLocation', busLocationSchema);
+>>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 
