@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Panel — Smart Bus Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="driver-body">
+
+<div class="driver-card">
+    <div class="driver-card-top">
+        <h1>🚍 Driver Panel</h1>
+        <p>Enter your bus number and start sharing your location live.</p>
+    </div>
+    <div class="driver-card-body">
+        <div class="field">
+            <label>Bus Number</label>
+            <input id="busId" placeholder="e.g. 101">
+        </div>
+        <button id="startBtn">📡 Start Tracking</button>
+        <div id="status">Not sharing location yet</div>
+        <button class="driver-logout" onclick="logoutUser()">Sign out</button>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/driver.js"></script>
+</body>
+</html>

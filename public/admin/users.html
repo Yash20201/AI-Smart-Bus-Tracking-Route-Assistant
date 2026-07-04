@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users – Bus Tracker Admin</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+<div id="nav"></div>
+<main class="container">
+    <div class="page-header">
+        <div class="page-icon">👥</div>
+        <div class="page-title">
+            <h1>Users</h1>
+            <p>All registered users across every role</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <div class="table-toolbar">
+            <h3>All Users</h3>
+            <span class="table-count" id="userCount">0</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+        </table>
+    </div>
+</main>
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/users.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>renderNav("users.html"));</script>
+</body>
+</html>

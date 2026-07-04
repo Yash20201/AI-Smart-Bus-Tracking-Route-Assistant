@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — Smart Bus Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-page">
+
+<div class="auth-left">
+    <div class="auth-left-content">
+        <div class="auth-brand">
+            <div class="auth-brand-icon">🚌</div>
+            Smart Bus Tracker
+        </div>
+        <h1>Join the network.<br>Choose your role.</h1>
+        <p>Passengers track their bus live. Drivers share their location. Admins manage the whole fleet.</p>
+        <div class="auth-features">
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Passenger — track buses on a live map</div>
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Driver — broadcast your GPS to passengers</div>
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Admin — manage buses, routes and users</div>
+        </div>
+    </div>
+</div>
+
+<div class="auth-right">
+    <div class="auth-form-wrap">
+        <h2>Create account</h2>
+        <p class="sub">Get started — it takes less than a minute.</p>
+
+        <div class="field">
+            <label>Full Name</label>
+            <input id="name" placeholder="Yash Chavan">
+        </div>
+        <div class="field">
+            <label>Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="••••••••">
+        </div>
+        <div class="field">
+            <label>Role</label>
+            <select id="role">
+                <option value="passenger">Passenger</option>
+                <option value="driver">Driver</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <button class="btn-full" onclick="register()">Create account →</button>
+
+        <p class="auth-switch">Already have an account? <a href="/login.html">Sign in</a></p>
+    </div>
+</div>
+
+<script src="/js/register.js"></script>
+</body>
+</html>

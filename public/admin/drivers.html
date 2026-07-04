@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drivers – Bus Tracker Admin</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+<div id="nav"></div>
+<main class="container">
+    <div class="page-header">
+        <div class="page-icon">🧑‍✈️</div>
+        <div class="page-title">
+            <h1>Drivers</h1>
+            <p>Manage all registered drivers</p>
+        </div>
+    </div>
+
+    <p class="hint" style="margin-bottom:18px">
+        New drivers register at <a href="/register.html" target="_blank">/register.html</a> by selecting the Driver role.
+    </p>
+
+    <div class="table-wrap">
+        <div class="table-toolbar">
+            <h3>All Drivers</h3>
+            <span class="table-count" id="driverCount">0</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Assigned Bus</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="driverTableBody"></tbody>
+        </table>
+    </div>
+</main>
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/drivers.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>renderNav("drivers.html"));</script>
+</body>
+</html>
