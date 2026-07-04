@@ -18,11 +18,7 @@ const routeSchema = new mongoose.Schema(
         },
 
         stops: [{
-<<<<<<< HEAD
             type: { type: String },
-=======
-            type: String,
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
             lat: Number,
             lng: Number
         }]

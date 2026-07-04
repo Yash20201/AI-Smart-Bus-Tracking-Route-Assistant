@@ -10,15 +10,12 @@ href="/vendor/leaflet/leaflet.css"/>
 <link rel="stylesheet" href="/css/style.css">
 
 <style>
-<<<<<<< HEAD
 * { box-sizing: border-box; }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, Arial, sans-serif;
 }
 
-=======
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 .passenger-layout {
     display: flex;
     height: 100vh;
@@ -26,16 +23,11 @@ body {
 }
 
 #sidebar {
-<<<<<<< HEAD
     width: 340px;
-=======
-    width: 320px;
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     flex-shrink: 0;
     background: #fff;
     border-right: 1px solid #e5e7eb;
     overflow-y: auto;
-<<<<<<< HEAD
     padding: 18px;
 }
 
@@ -45,14 +37,6 @@ body {
 #sidebar h2 {
     font-size: 1.2rem;
     margin: 4px 0 20px;
-=======
-    padding: 16px;
-}
-
-#sidebar h2 {
-    font-size: 1.15rem;
-    margin: 0 0 16px;
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     background: linear-gradient(135deg, #4f46e5, #06b6d4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -61,7 +45,6 @@ body {
 }
 
 #sidebar h3 {
-<<<<<<< HEAD
     display: flex;
     align-items: center;
     gap: 6px;
@@ -84,52 +67,22 @@ body {
 }
 
 .route-item:hover { background: #f8f9ff; border-color: #c7d2fe; }
-=======
-    font-size: 0.85rem;
-    color: #6b7280;
-    text-transform: uppercase;
-    margin: 18px 0 8px;
-}
-
-.route-item {
-    padding: 10px 12px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.route-item:hover {
-    background: #f4f6f9;
-}
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 
 .route-item.active {
     border-color: #4f46e5;
     background: #eef2ff;
-<<<<<<< HEAD
     box-shadow: 0 2px 10px rgba(79,70,229,0.12);
-=======
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 }
 
 .live-bus-item {
     display: flex;
     align-items: center;
     gap: 8px;
-<<<<<<< HEAD
     padding: 9px 12px;
     border-radius: 10px;
     background: #f0fdf4;
     border: 1px solid #d1fae5;
     margin-bottom: 7px;
-=======
-    padding: 8px 10px;
-    border-radius: 6px;
-    background: #f0fdf4;
-    margin-bottom: 6px;
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     font-size: 0.85rem;
 }
 
@@ -139,7 +92,6 @@ body {
     border-radius: 50%;
     background: #16a34a;
     flex-shrink: 0;
-<<<<<<< HEAD
     box-shadow: 0 0 0 3px rgba(22,163,74,0.18);
 }
 
@@ -255,16 +207,6 @@ body {
     font-weight: 700;
 }
 
-=======
-}
-
-.empty-hint {
-    color: #6b7280;
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 #mapWrap {
     flex: 1;
     position: relative;
@@ -277,7 +219,6 @@ body {
 
 .top-bar {
     position: absolute;
-<<<<<<< HEAD
     top: 14px;
     left: 14px;
     right: 14px;
@@ -287,17 +228,6 @@ body {
     padding: 11px 16px;
     box-shadow: 0 6px 20px rgba(20,20,50,0.14);
     font-size: 0.86rem;
-=======
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    z-index: 500;
-    background: #fff;
-    border-radius: 8px;
-    padding: 10px 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    font-size: 0.85rem;
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
     color: #374151;
     display: flex;
     justify-content: space-between;
@@ -306,7 +236,6 @@ body {
 
 .top-bar button {
     background: transparent;
-<<<<<<< HEAD
     color: #e11d48;
     border: 1.5px solid #fecdd3;
     padding: 6px 14px;
@@ -323,15 +252,6 @@ body {
     #sidebar { width: 100%; max-height: 45vh; }
     #mapWrap { height: 55vh; }
 }
-=======
-    color: #dc2626;
-    border: 1px solid #dc2626;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 </style>
 
 </head>
@@ -343,16 +263,11 @@ body {
     <div id="sidebar">
         <h2>🚌 Track Your Bus</h2>
 
-<<<<<<< HEAD
         <h3>🟢 Live Right Now</h3>
-=======
-        <h3>Live Right Now</h3>
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         <div id="liveBusList">
             <p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel.</p>
         </div>
 
-<<<<<<< HEAD
         <div class="ai-card">
             <div class="ai-title">🤖 AI Route Assistant <span class="ai-badge">AI</span></div>
             <div class="ai-sub">Tell us where you're going — we'll find the best route.</div>
@@ -363,9 +278,6 @@ body {
         </div>
 
         <h3>🗺️ Available Routes</h3>
-=======
-        <h3>Available Routes</h3>
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
         <div id="routeList">
             <p class="empty-hint">Loading routes...</p>
         </div>

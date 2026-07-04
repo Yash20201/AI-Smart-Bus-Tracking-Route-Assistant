@@ -27,7 +27,6 @@ exports.getBuses = async (req, res) => {
 };
 
 exports.assignDriverToBus = async (req, res) => {
-<<<<<<< HEAD
     try {
         const { busId, driverId } = req.body;
 
@@ -82,22 +81,3 @@ exports.deleteBus = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-=======
-    const { busId, driverId } = req.body;
-
-    const bus = await Bus.findByIdAndUpdate(
-        busId,
-        {
-            driver: driverId
-        },
-        {
-             new: true 
-        }
-    );
-
-    res.json(bus);
-
-};
-
-
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676

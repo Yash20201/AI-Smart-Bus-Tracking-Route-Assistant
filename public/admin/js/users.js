@@ -2,7 +2,6 @@ async function loadUsers() {
     try {
         const users = await apiFetch("/admin/users");
         const tbody = document.getElementById("userTableBody");
-<<<<<<< HEAD
         const count = document.getElementById("userCount");
         if (count) count.textContent = users.length;
 
@@ -19,19 +18,6 @@ async function loadUsers() {
                 <td><button class="btn btn-danger btn-sm" data-delete="user" data-id="${u._id}" data-label="${escapeHtml(u.name)}">🗑 Delete</button></td>
             </tr>`).join("");
     } catch (e) { showToast(e.message, "error"); }
-=======
-
-        tbody.innerHTML = users.map((user) => `
-            <tr>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td><span class="badge badge-${user.role}">${user.role}</span></td>
-            </tr>
-        `).join("");
-    } catch (error) {
-        alert(error.message);
-    }
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
 }
 
 document.addEventListener("DOMContentLoaded", loadUsers);

@@ -1,4 +1,4 @@
-// Auth guard: only logged-in users can access the driver panel
+
 if (!localStorage.getItem("token")) {
     window.location.href = "/login.html";
 }

@@ -32,7 +32,6 @@ exports.getRoutes = async (req, res) => {
     });
 
   }
-<<<<<<< HEAD
 };
 exports.deleteRoute = async (req, res) => {
     try {
@@ -43,6 +42,3 @@ exports.deleteRoute = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
-=======
-};
->>>>>>> e7aad6b869026515dbcb524cd2b323ac59588676
