@@ -89,10 +89,13 @@ body {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #fff;
     box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+<<<<<<< HEAD
 }
 
 .logout-btn {
     margin-top: 14px;
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
     background: transparent;
     color: var(--danger);
     border: 1.5px solid #fecdd3;

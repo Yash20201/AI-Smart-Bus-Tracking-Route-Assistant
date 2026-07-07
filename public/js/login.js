@@ -3,21 +3,35 @@ async function login() {
     const password = document.getElementById("password").value;
 
     if (!email || !password) {
+<<<<<<< HEAD
         showNotification("Please enter both email and password", "error");
+=======
+        alert("Please enter both email and password");
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
         return;
     }
 
     try {
         const response = await fetch("/api/auth/login", {
             method: "POST",
+<<<<<<< HEAD
             headers: { "Content-Type": "application/json" },
+=======
+            headers: {
+                "Content-Type": "application/json"
+            },
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
             body: JSON.stringify({ email, password })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
+<<<<<<< HEAD
             showNotification(data.message || "Login failed", "error");
+=======
+            alert(data.message || "Login failed");
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
             return;
         }
 
@@ -34,6 +48,7 @@ async function login() {
             passenger: "/passenger/passenger.html"
         };
 
+<<<<<<< HEAD
         showNotification("Login successful", "success");
 
         setTimeout(() => {
@@ -41,6 +56,13 @@ async function login() {
         }, 400);
     } catch (error) {
         showNotification("Something went wrong. Please try again.", "error");
+=======
+        const destination = redirects[data.user && data.user.role] || "/login.html";
+
+        window.location.href = destination;
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
         console.error(error);
     }
 }

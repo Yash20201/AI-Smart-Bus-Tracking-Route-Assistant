@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Auth guard: only logged-in users can access the driver panel
+=======
+
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 if (!localStorage.getItem("token")) {
     window.location.href = "/login.html";
 }
@@ -12,6 +16,7 @@ function logoutUser() {
 
 const socket = io();
 
+<<<<<<< HEAD
 const startBtn = document.getElementById("startBtn");
 const status = document.getElementById("status");
 
@@ -55,4 +60,61 @@ startBtn.addEventListener("click", () => {
         },
         { enableHighAccuracy: true }
     );
+=======
+const startBtn =
+document.getElementById("startBtn");
+
+const status =
+document.getElementById("status");
+
+startBtn.addEventListener("click", () => {
+
+    const busId = document.getElementById("busId").value.trim();
+
+    if (!busId) {
+        alert("Please enter a bus number first");
+        return;
+    }
+
+    navigator.geolocation.watchPosition(
+
+        (position) => {
+
+            const data = {
+
+                busId,
+
+                latitude:
+                position.coords.latitude,
+
+                longitude:
+                position.coords.longitude
+
+            };
+
+            socket.emit(
+                "locationUpdate",
+                data
+            );
+
+            status.innerText =
+            "Location Sharing Started";
+
+            status.classList.add("active");
+
+            console.log(data);
+
+        },
+
+        (error) => {
+            console.log(error);
+            status.innerText = "Unable to get location: " + error.message;
+        },
+
+        {
+            enableHighAccuracy: true
+        }
+    );
+
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 });

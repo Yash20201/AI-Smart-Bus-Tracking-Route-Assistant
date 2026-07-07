@@ -21,10 +21,13 @@ function escapeHtml(str) {
         .replace(/'/g, "&#39;");
 }
 
+<<<<<<< HEAD
 function cssSafe(id) {
     return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
 }
 
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 async function apiGet(path) {
     const response = await fetch(`/api${path}`, {
         headers: { Authorization: `Bearer ${token}` }
@@ -61,6 +64,7 @@ const markers = {};
 const liveBuses = {};
 const openEta = {};
 
+<<<<<<< HEAD
 /* ── CUSTOM MARKER ICONS ── */
 function busIcon(busId, isTracked) {
     return L.divIcon({
@@ -94,10 +98,19 @@ function renderLiveBusList() {
 
     if (ids.length === 0) {
         container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel, or tap <strong>Try Demo</strong> above.</p>`;
+=======
+function renderLiveBusList() {
+    const container = document.getElementById("liveBusList");
+    const ids = Object.keys(liveBuses);
+
+    if (ids.length === 0) {
+        container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel.</p>`;
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
         return;
     }
 
     container.innerHTML = ids.map((busId) => `
+<<<<<<< HEAD
         <div class="live-bus-item${busId === trackedBusId ? " tracked" : ""}">
             <span class="live-dot"></span>
             <strong>${escapeHtml(busId)}</strong>
@@ -107,11 +120,18 @@ function renderLiveBusList() {
                     ${busId === trackedBusId ? "🎯 Tracking" : "🎯 Track"}
                 </button>
             </div>
+=======
+        <div class="live-bus-item">
+            <span class="live-dot"></span>
+            <strong>${escapeHtml(busId)}</strong>
+            <button class="eta-btn" onclick="toggleEta('${busId}')">⏱ ETA</button>
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
         </div>
         <div class="eta-result" id="eta-${cssSafe(busId)}" style="display:none"></div>
     `).join("");
 
     // Re-open any ETA panels that were showing before this re-render
+<<<<<<< HEAD
     Object.keys(openEta).forEach((id) => {
         if (openEta[id]) showEta(id, openEta[id]);
     });
@@ -131,6 +151,17 @@ document.addEventListener("click", (e) => {
 });
 
 /* ── ETA (time to next route stop) ── */
+=======
+    Object.keys(openEta).forEach((busId) => {
+        if (openEta[busId]) showEta(busId, openEta[busId]);
+    });
+}
+
+function cssSafe(id) {
+    return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
+}
+
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 async function toggleEta(busId) {
     const el = document.getElementById(`eta-${cssSafe(busId)}`);
     if (!el) return;
@@ -168,6 +199,7 @@ function showEta(busId, eta) {
     }
 }
 
+<<<<<<< HEAD
 /* ── LIVE TRACKING: distance + line from a bus to your pickup point ──
    This is separate from ETA above: ETA estimates time to the route's
    next stop; Track shows the live straight-line distance between a
@@ -304,6 +336,8 @@ function animateMarkerTo(busId, marker, toLatLng, duration = 900) {
     requestAnimationFrame(step);
 }
 
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 socket.on("busLocation", (data) => {
     const { busId, latitude, longitude } = data;
 
@@ -311,6 +345,7 @@ socket.on("busLocation", (data) => {
     renderLiveBusList();
 
     if (markers[busId]) {
+<<<<<<< HEAD
         animateMarkerTo(busId, markers[busId], [latitude, longitude]);
     } else {
         markers[busId] = L.marker([latitude, longitude], { icon: busIcon(busId, busId === trackedBusId) })
@@ -319,6 +354,13 @@ socket.on("busLocation", (data) => {
         markers[busId].on("click", () => trackBus(busId));
 
         if (busId === trackedBusId) updateTrackingLine();
+=======
+        markers[busId].setLatLng([latitude, longitude]);
+    } else {
+        markers[busId] = L.marker([latitude, longitude])
+            .addTo(map)
+            .bindPopup(escapeHtml(busId));
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
     }
 });
 
@@ -338,6 +380,7 @@ function showTopBar(text) {
     document.getElementById("topBarText").innerText = text;
 }
 
+<<<<<<< HEAD
 /* ── DEMO BUS ──
    Lets a passenger see the live-tracking feature (marker, moving bus,
    line + distance to their pickup point) immediately, without needing a
@@ -414,6 +457,8 @@ function stopDemoBus() {
 }
 
 /* ── ROUTES ── */
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 async function loadRoutes() {
     const container = document.getElementById("routeList");
 

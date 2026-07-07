@@ -11,7 +11,11 @@ async function loadDashboard() {
         document.getElementById("activeBuses").innerText = stats.activeBuses;
         document.getElementById("totalRoutes").innerText = stats.totalRoutes;
     } catch (error) {
+<<<<<<< HEAD
         showToast(error.message, "error");
+=======
+        alert(error.message);
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
     }
 }
 

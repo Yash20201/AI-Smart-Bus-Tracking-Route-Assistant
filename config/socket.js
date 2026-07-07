@@ -1,5 +1,6 @@
 const { Server } = require("socket.io");
 
+<<<<<<< HEAD
 /**
  * Creates and configures the Socket.IO server instance.
  *
@@ -15,6 +16,8 @@ const { Server } = require("socket.io");
  *   const io = initSocket(server);
  *   require("./sockets/trackingSocket")(io);
  */
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
 function initSocket(httpServer) {
     const io = new Server(httpServer, {
         cors: {
