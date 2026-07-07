@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Routes – Bus Tracker Admin</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+<div id="nav"></div>
+<main class="container">
+    <div class="page-header">
+        <div class="page-icon">🗺️</div>
+        <div class="page-title">
+            <h1>Routes</h1>
+            <p>Create and manage bus routes</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon">➕</div>
+            <h2>Add New Route</h2>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Route Number</label>
+                <input id="routeNumber" placeholder="e.g. 12">
+            </div>
+            <div class="form-group">
+                <label>Start Point</label>
+                <input id="startPoint" placeholder="e.g. Adajan">
+            </div>
+            <div class="form-group">
+                <label>End Point</label>
+                <input id="endPoint" placeholder="e.g. Railway Station">
+            </div>
+            <div class="form-group">
+                <label>Stops (comma separated)</label>
+                <input id="stops" placeholder="Stop A, Stop B, Stop C" style="min-width:220px">
+            </div>
+            <button class="btn btn-primary" onclick="createRoute()">➕ Add Route</button>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <div class="table-toolbar">
+            <h3>All Routes</h3>
+            <span class="table-count" id="routeCount">0</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Stops</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="routeTableBody"></tbody>
+        </table>
+    </div>
+</main>
+<script src="/admin/js/common.js"></script>
+<script src="/admin/js/routes.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>renderNav("routes.html"));</script>
+</body>
+</html>
