@@ -315,6 +315,10 @@ body.driver-body {
 }
 
 .driver-logout:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 
 /* ── SHARED TOAST NOTIFICATIONS (login/register/driver pages) ── */
 #notify-wrap {
@@ -361,3 +365,8 @@ body.driver-body {
     from { transform: translateX(110%); opacity: 0; }
     to   { transform: translateX(0);    opacity: 1; }
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3

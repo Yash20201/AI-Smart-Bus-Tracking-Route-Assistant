@@ -21,10 +21,19 @@ function escapeHtml(str) {
         .replace(/'/g, "&#39;");
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 function cssSafe(id) {
     return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function apiGet(path) {
     const response = await fetch(`/api${path}`, {
         headers: { Authorization: `Bearer ${token}` }
@@ -61,6 +70,10 @@ const markers = {};
 const liveBuses = {};
 const openEta = {};
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 /* ── CUSTOM MARKER ICONS ── */
 function busIcon(busId, isTracked) {
     return L.divIcon({
@@ -94,10 +107,25 @@ function renderLiveBusList() {
 
     if (ids.length === 0) {
         container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel, or tap <strong>Try Demo</strong> above.</p>`;
+<<<<<<< HEAD
+=======
+=======
+function renderLiveBusList() {
+    const container = document.getElementById("liveBusList");
+    const ids = Object.keys(liveBuses);
+
+    if (ids.length === 0) {
+        container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel.</p>`;
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         return;
     }
 
     container.innerHTML = ids.map((busId) => `
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         <div class="live-bus-item${busId === trackedBusId ? " tracked" : ""}">
             <span class="live-dot"></span>
             <strong>${escapeHtml(busId)}</strong>
@@ -107,11 +135,24 @@ function renderLiveBusList() {
                     ${busId === trackedBusId ? "🎯 Tracking" : "🎯 Track"}
                 </button>
             </div>
+<<<<<<< HEAD
+=======
+=======
+        <div class="live-bus-item">
+            <span class="live-dot"></span>
+            <strong>${escapeHtml(busId)}</strong>
+            <button class="eta-btn" onclick="toggleEta('${busId}')">⏱ ETA</button>
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         </div>
         <div class="eta-result" id="eta-${cssSafe(busId)}" style="display:none"></div>
     `).join("");
 
     // Re-open any ETA panels that were showing before this re-render
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     Object.keys(openEta).forEach((id) => {
         if (openEta[id]) showEta(id, openEta[id]);
     });
@@ -131,6 +172,20 @@ document.addEventListener("click", (e) => {
 });
 
 /* ── ETA (time to next route stop) ── */
+<<<<<<< HEAD
+=======
+=======
+    Object.keys(openEta).forEach((busId) => {
+        if (openEta[busId]) showEta(busId, openEta[busId]);
+    });
+}
+
+function cssSafe(id) {
+    return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
+}
+
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function toggleEta(busId) {
     const el = document.getElementById(`eta-${cssSafe(busId)}`);
     if (!el) return;
@@ -168,6 +223,7 @@ function showEta(busId, eta) {
     }
 }
 
+<<<<<<< HEAD
 /* ── LIVE TRACKING: distance + route line from a bus to your pickup point ──
    This is separate from ETA above: ETA estimates time to the route's
    next stop; Track shows the live distance/route between a moving bus
@@ -185,6 +241,17 @@ let lastRoadFetchLatLng = null;
 let lastRoadFetchTime = 0;
 const ROAD_FETCH_MIN_INTERVAL_MS = 8000;
 const ROAD_FETCH_MIN_DISTANCE_KM = 0.1;
+=======
+<<<<<<< HEAD
+/* ── LIVE TRACKING: distance + line from a bus to your pickup point ──
+   This is separate from ETA above: ETA estimates time to the route's
+   next stop; Track shows the live straight-line distance between a
+   moving bus and where YOU are standing, updating as the bus moves. */
+let trackedBusId = null;
+let myLocation = null;
+let myMarker = null;
+let trackLine = null;
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 
 function haversineKm(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -241,11 +308,14 @@ async function trackBus(busId) {
     const previous = trackedBusId;
     trackedBusId = busId;
 
+<<<<<<< HEAD
     // Starting fresh (possibly with a different bus) - clear any old road route
     if (roadRouteLine) { map.removeLayer(roadRouteLine); roadRouteLine = null; }
     lastRoadFetchLatLng = null;
     lastRoadFetchTime = 0;
 
+=======
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     if (previous) refreshBusIcon(previous);
     refreshBusIcon(busId);
 
@@ -262,10 +332,13 @@ function stopTracking() {
     trackedBusId = null;
 
     if (trackLine) { map.removeLayer(trackLine); trackLine = null; }
+<<<<<<< HEAD
     if (roadRouteLine) { map.removeLayer(roadRouteLine); roadRouteLine = null; }
     lastRoadFetchLatLng = null;
     lastRoadFetchTime = 0;
 
+=======
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     document.getElementById("trackingCard").style.display = "none";
 
     if (previous) refreshBusIcon(previous);
@@ -281,9 +354,12 @@ function updateTrackingLine(overrideBusLatLng) {
     const busLatLng = overrideBusLatLng || [bus.latitude, bus.longitude];
     const myLatLng = [myLocation.lat, myLocation.lng];
 
+<<<<<<< HEAD
     // Instant straight-line fallback — always kept up to date so there's
     // never a moment with no line at all, even before the road route
     // (or if it fails) loads. Hidden once a real road route is showing.
+=======
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     if (trackLine) {
         trackLine.setLatLngs([busLatLng, myLatLng]);
     } else {
@@ -291,6 +367,7 @@ function updateTrackingLine(overrideBusLatLng) {
             color: "#4f46e5",
             weight: 3,
             dashArray: "8,7",
+<<<<<<< HEAD
             opacity: roadRouteLine ? 0 : 0.85
         }).addTo(map);
     }
@@ -358,6 +435,15 @@ async function maybeFetchRoadRoute(busLatLng, myLatLng) {
         clearTimeout(timeoutId);
         console.log("Road route unavailable, using straight-line fallback:", error.message);
     }
+=======
+            opacity: 0.85
+        }).addTo(map);
+    }
+
+    const distanceKm = haversineKm(busLatLng[0], busLatLng[1], myLatLng[0], myLatLng[1]);
+    document.getElementById("trackingDistance").innerHTML =
+        `<strong>${distanceKm.toFixed(2)} km</strong> from your pickup point`;
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 }
 
 /* ── SMOOTH MARKER MOVEMENT ──
@@ -385,6 +471,11 @@ function animateMarkerTo(busId, marker, toLatLng, duration = 900) {
     requestAnimationFrame(step);
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 socket.on("busLocation", (data) => {
     const { busId, latitude, longitude } = data;
 
@@ -392,6 +483,10 @@ socket.on("busLocation", (data) => {
     renderLiveBusList();
 
     if (markers[busId]) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         animateMarkerTo(busId, markers[busId], [latitude, longitude]);
     } else {
         markers[busId] = L.marker([latitude, longitude], { icon: busIcon(busId, busId === trackedBusId) })
@@ -400,6 +495,16 @@ socket.on("busLocation", (data) => {
         markers[busId].on("click", () => trackBus(busId));
 
         if (busId === trackedBusId) updateTrackingLine();
+<<<<<<< HEAD
+=======
+=======
+        markers[busId].setLatLng([latitude, longitude]);
+    } else {
+        markers[busId] = L.marker([latitude, longitude])
+            .addTo(map)
+            .bindPopup(escapeHtml(busId));
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     }
 });
 
@@ -419,6 +524,10 @@ function showTopBar(text) {
     document.getElementById("topBarText").innerText = text;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 /* ── DEMO BUS ──
    Lets a passenger see the live-tracking feature (marker, moving bus,
    line + distance to their pickup point) immediately, without needing a
@@ -495,6 +604,11 @@ function stopDemoBus() {
 }
 
 /* ── ROUTES ── */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
+>>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function loadRoutes() {
     const container = document.getElementById("routeList");
 
