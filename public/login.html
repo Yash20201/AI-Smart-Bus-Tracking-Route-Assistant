@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Smart Bus Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-page">
+
+<div class="auth-left">
+    <div class="auth-left-content">
+        <div class="auth-brand">
+            <div class="auth-brand-icon">🚌</div>
+            Smart Bus Tracker
+        </div>
+        <h1>Track every bus.<br>Every stop.<br>In real time.</h1>
+        <p>A live GPS tracking system for passengers, drivers, and fleet administrators.</p>
+        <div class="auth-features">
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Live map with bus locations</div>
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Driver GPS broadcasting</div>
+            <div class="auth-feature"><span class="auth-feature-dot"></span>Admin fleet management</div>
+        </div>
+    </div>
+</div>
+
+<div class="auth-right">
+    <div class="auth-form-wrap">
+        <h2>Welcome back</h2>
+        <p class="sub">Sign in to your account to continue.</p>
+
+        <div class="field">
+            <label>Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="••••••••">
+        </div>
+
+        <button class="btn-full" onclick="login()">Sign in →</button>
+
+        <p class="auth-switch">Don't have an account? <a href="/register.html">Register</a></p>
+    </div>
+</div>
+
+<script src="/js/notify.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>
