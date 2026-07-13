@@ -38,13 +38,6 @@
 	width: 1600px;
 	height: 1600px;
 	-webkit-transform-origin: 0 0;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-	transform-origin: 0 0;
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 	}
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
@@ -108,18 +101,7 @@
 	}
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 .leaflet-overlay-pane svg {
-<<<<<<< HEAD
 	-moz-user-select: none;
-=======
-<<<<<<< HEAD
-	-moz-user-select: none;
-=======
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 	}
 
 .leaflet-pane         { z-index: 400; }
@@ -564,13 +546,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 
 .leaflet-oldie .leaflet-popup-content-wrapper {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-	zoom: 1;
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 	-ms-zoom: 1;
 	}
 .leaflet-oldie .leaflet-popup-tip {

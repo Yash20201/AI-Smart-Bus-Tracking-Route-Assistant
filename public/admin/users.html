@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9A%8C</text></svg>">
     <title>Users – Bus Tracker Admin</title>
     <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
@@ -18,6 +19,7 @@
     <div class="table-wrap">
         <div class="table-toolbar">
             <h3>All Users</h3>
+            <input type="text" class="table-search" id="userSearch" placeholder="Search users…" oninput="filterUsers(this.value)">
             <span class="table-count" id="userCount">0</span>
         </div>
         <table>

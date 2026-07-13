@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9A%8C</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register — Smart Bus Tracker</title>
@@ -39,31 +40,27 @@
         </div>
         <div class="field">
             <label>Password</label>
-            <input id="password" type="password" placeholder="••••••••">
+            <div class="password-wrap">
+                <input id="password" type="password" placeholder="••••••••">
+                <button type="button" class="toggle-password" onclick="togglePassword('password', this)" tabindex="-1">👁️</button>
+            </div>
         </div>
         <div class="field">
             <label>Role</label>
             <select id="role">
                 <option value="passenger">Passenger</option>
                 <option value="driver">Driver</option>
-                <option value="admin">Admin</option>
+                <!-- <option value="admin">Admin</option> -->
             </select>
         </div>
 
-        <button class="btn-full" onclick="register()">Create account →</button>
+        <button class="btn-full" id="registerBtn" onclick="register()">Create account →</button>
 
         <p class="auth-switch">Already have an account? <a href="/login.html">Sign in</a></p>
     </div>
 </div>
 
-<<<<<<< HEAD
 <script src="/js/notify.js"></script>
-=======
-<<<<<<< HEAD
-<script src="/js/notify.js"></script>
-=======
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 <script src="/js/register.js"></script>
 </body>
 </html>

@@ -9,6 +9,19 @@ async function loadBuses() {
     } catch (e) { showToast(e.message, "error"); }
 }
 
+function filterBuses(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) return renderBusTable(allBuses);
+
+    const filtered = allBuses.filter(bus =>
+        bus.busNumber.toLowerCase().includes(q) ||
+        bus.busName.toLowerCase().includes(q) ||
+        (bus.driver && bus.driver.name.toLowerCase().includes(q)) ||
+        (bus.route && bus.route.routeNumber.toLowerCase().includes(q))
+    );
+    renderBusTable(filtered, q);
+}
+
 function renderBusTable(buses) {
     const tbody = document.getElementById("busTableBody");
     const count = document.getElementById("busCount");

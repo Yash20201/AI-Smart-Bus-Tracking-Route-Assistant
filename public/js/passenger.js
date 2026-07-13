@@ -21,19 +21,10 @@ function escapeHtml(str) {
         .replace(/'/g, "&#39;");
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 function cssSafe(id) {
     return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
 }
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function apiGet(path) {
     const response = await fetch(`/api${path}`, {
         headers: { Authorization: `Bearer ${token}` }
@@ -70,10 +61,6 @@ const markers = {};
 const liveBuses = {};
 const openEta = {};
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 /* ── CUSTOM MARKER ICONS ── */
 function busIcon(busId, isTracked) {
     return L.divIcon({
@@ -107,25 +94,10 @@ function renderLiveBusList() {
 
     if (ids.length === 0) {
         container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel, or tap <strong>Try Demo</strong> above.</p>`;
-<<<<<<< HEAD
-=======
-=======
-function renderLiveBusList() {
-    const container = document.getElementById("liveBusList");
-    const ids = Object.keys(liveBuses);
-
-    if (ids.length === 0) {
-        container.innerHTML = `<p class="empty-hint">No buses are currently sharing their location. Ask your driver to start tracking from their panel.</p>`;
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         return;
     }
 
     container.innerHTML = ids.map((busId) => `
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         <div class="live-bus-item${busId === trackedBusId ? " tracked" : ""}">
             <span class="live-dot"></span>
             <strong>${escapeHtml(busId)}</strong>
@@ -135,24 +107,11 @@ function renderLiveBusList() {
                     ${busId === trackedBusId ? "🎯 Tracking" : "🎯 Track"}
                 </button>
             </div>
-<<<<<<< HEAD
-=======
-=======
-        <div class="live-bus-item">
-            <span class="live-dot"></span>
-            <strong>${escapeHtml(busId)}</strong>
-            <button class="eta-btn" onclick="toggleEta('${busId}')">⏱ ETA</button>
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         </div>
         <div class="eta-result" id="eta-${cssSafe(busId)}" style="display:none"></div>
     `).join("");
 
     // Re-open any ETA panels that were showing before this re-render
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     Object.keys(openEta).forEach((id) => {
         if (openEta[id]) showEta(id, openEta[id]);
     });
@@ -172,20 +131,6 @@ document.addEventListener("click", (e) => {
 });
 
 /* ── ETA (time to next route stop) ── */
-<<<<<<< HEAD
-=======
-=======
-    Object.keys(openEta).forEach((busId) => {
-        if (openEta[busId]) showEta(busId, openEta[busId]);
-    });
-}
-
-function cssSafe(id) {
-    return String(id).replace(/[^a-zA-Z0-9_-]/g, "_");
-}
-
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function toggleEta(busId) {
     const el = document.getElementById(`eta-${cssSafe(busId)}`);
     if (!el) return;
@@ -223,7 +168,6 @@ function showEta(busId, eta) {
     }
 }
 
-<<<<<<< HEAD
 /* ── LIVE TRACKING: distance + route line from a bus to your pickup point ──
    This is separate from ETA above: ETA estimates time to the route's
    next stop; Track shows the live distance/route between a moving bus
@@ -241,17 +185,6 @@ let lastRoadFetchLatLng = null;
 let lastRoadFetchTime = 0;
 const ROAD_FETCH_MIN_INTERVAL_MS = 8000;
 const ROAD_FETCH_MIN_DISTANCE_KM = 0.1;
-=======
-<<<<<<< HEAD
-/* ── LIVE TRACKING: distance + line from a bus to your pickup point ──
-   This is separate from ETA above: ETA estimates time to the route's
-   next stop; Track shows the live straight-line distance between a
-   moving bus and where YOU are standing, updating as the bus moves. */
-let trackedBusId = null;
-let myLocation = null;
-let myMarker = null;
-let trackLine = null;
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 
 function haversineKm(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -308,14 +241,11 @@ async function trackBus(busId) {
     const previous = trackedBusId;
     trackedBusId = busId;
 
-<<<<<<< HEAD
     // Starting fresh (possibly with a different bus) - clear any old road route
     if (roadRouteLine) { map.removeLayer(roadRouteLine); roadRouteLine = null; }
     lastRoadFetchLatLng = null;
     lastRoadFetchTime = 0;
 
-=======
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     if (previous) refreshBusIcon(previous);
     refreshBusIcon(busId);
 
@@ -332,13 +262,10 @@ function stopTracking() {
     trackedBusId = null;
 
     if (trackLine) { map.removeLayer(trackLine); trackLine = null; }
-<<<<<<< HEAD
     if (roadRouteLine) { map.removeLayer(roadRouteLine); roadRouteLine = null; }
     lastRoadFetchLatLng = null;
     lastRoadFetchTime = 0;
 
-=======
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     document.getElementById("trackingCard").style.display = "none";
 
     if (previous) refreshBusIcon(previous);
@@ -354,12 +281,9 @@ function updateTrackingLine(overrideBusLatLng) {
     const busLatLng = overrideBusLatLng || [bus.latitude, bus.longitude];
     const myLatLng = [myLocation.lat, myLocation.lng];
 
-<<<<<<< HEAD
     // Instant straight-line fallback — always kept up to date so there's
     // never a moment with no line at all, even before the road route
     // (or if it fails) loads. Hidden once a real road route is showing.
-=======
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     if (trackLine) {
         trackLine.setLatLngs([busLatLng, myLatLng]);
     } else {
@@ -367,7 +291,6 @@ function updateTrackingLine(overrideBusLatLng) {
             color: "#4f46e5",
             weight: 3,
             dashArray: "8,7",
-<<<<<<< HEAD
             opacity: roadRouteLine ? 0 : 0.85
         }).addTo(map);
     }
@@ -381,6 +304,37 @@ function updateTrackingLine(overrideBusLatLng) {
     maybeFetchRoadRoute(busLatLng, myLatLng);
 }
 
+// Fetches an actual road-following path from a free public routing service
+// (no API key needed) between two points. Returns { path, distanceKm,
+// durationMin } where path is a dense array of [lat,lng] tracing the real
+// road geometry, or null if the service can't be reached (offline, blocked
+// network, timeout) — callers should fall back gracefully when this happens.
+async function fetchOsrmRoute(fromLatLng, toLatLng) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+    try {
+        const url = `https://router.project-osrm.org/route/v1/driving/${fromLatLng[1]},${fromLatLng[0]};${toLatLng[1]},${toLatLng[0]}?overview=full&geometries=geojson`;
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) return null;
+
+        const data = await res.json();
+        if (data.code !== "Ok" || !data.routes || !data.routes[0]) return null;
+
+        return {
+            path: data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]),
+            distanceKm: data.routes[0].distance / 1000,
+            durationMin: Math.max(1, Math.round(data.routes[0].duration / 60))
+        };
+    } catch (error) {
+        clearTimeout(timeoutId);
+        console.log("Road route unavailable:", error.message);
+        return null;
+    }
+}
+
 function shouldFetchRoadRoute(busLatLng) {
     const now = Date.now();
     if (!lastRoadFetchLatLng) return true;
@@ -388,11 +342,9 @@ function shouldFetchRoadRoute(busLatLng) {
     return haversineKm(busLatLng[0], busLatLng[1], lastRoadFetchLatLng[0], lastRoadFetchLatLng[1]) >= ROAD_FETCH_MIN_DISTANCE_KM;
 }
 
-// Fetches an actual road-following path from a free public routing service
-// (no API key needed). Throttled by time + distance so it doesn't fire on
-// every animation frame. If the service can't be reached — blocked network,
-// offline, timeout — this silently leaves the straight dashed line in place
-// rather than breaking anything.
+// Throttled by time + distance so it doesn't fire on every animation frame.
+// If the routing service can't be reached, this silently leaves the
+// straight dashed line in place rather than breaking anything.
 async function maybeFetchRoadRoute(busLatLng, myLatLng) {
     if (!shouldFetchRoadRoute(busLatLng)) return;
 
@@ -400,50 +352,23 @@ async function maybeFetchRoadRoute(busLatLng, myLatLng) {
     lastRoadFetchTime = Date.now();
     const requestedFor = trackedBusId;
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    const result = await fetchOsrmRoute(busLatLng, myLatLng);
+    if (!result) return;
 
-    try {
-        const url = `https://router.project-osrm.org/route/v1/driving/${busLatLng[1]},${busLatLng[0]};${myLatLng[1]},${myLatLng[0]}?overview=full&geometries=geojson`;
-        const res = await fetch(url, { signal: controller.signal });
-        clearTimeout(timeoutId);
+    // If tracking was stopped or switched to another bus while this was
+    // in flight, discard the now-stale result.
+    if (trackedBusId !== requestedFor) return;
 
-        if (!res.ok) return;
-
-        const data = await res.json();
-        if (data.code !== "Ok" || !data.routes || !data.routes[0]) return;
-
-        // If tracking was stopped or switched to another bus while this was
-        // in flight, discard the now-stale result.
-        if (trackedBusId !== requestedFor) return;
-
-        const path = data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]);
-        const distanceKm = data.routes[0].distance / 1000;
-        const durationMin = Math.max(1, Math.round(data.routes[0].duration / 60));
-
-        if (roadRouteLine) {
-            roadRouteLine.setLatLngs(path);
-        } else {
-            roadRouteLine = L.polyline(path, { color: "#4f46e5", weight: 4, opacity: 0.9 }).addTo(map);
-        }
-
-        if (trackLine) trackLine.setStyle({ opacity: 0 });
-
-        document.getElementById("trackingDistance").innerHTML =
-            `<strong>${distanceKm.toFixed(1)} km</strong> by road · ~${durationMin} min drive`;
-    } catch (error) {
-        clearTimeout(timeoutId);
-        console.log("Road route unavailable, using straight-line fallback:", error.message);
-    }
-=======
-            opacity: 0.85
-        }).addTo(map);
+    if (roadRouteLine) {
+        roadRouteLine.setLatLngs(result.path);
+    } else {
+        roadRouteLine = L.polyline(result.path, { color: "#4f46e5", weight: 4, opacity: 0.9 }).addTo(map);
     }
 
-    const distanceKm = haversineKm(busLatLng[0], busLatLng[1], myLatLng[0], myLatLng[1]);
+    if (trackLine) trackLine.setStyle({ opacity: 0 });
+
     document.getElementById("trackingDistance").innerHTML =
-        `<strong>${distanceKm.toFixed(2)} km</strong> from your pickup point`;
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
+        `<strong>${result.distanceKm.toFixed(1)} km</strong> by road · ~${result.durationMin} min drive`;
 }
 
 /* ── SMOOTH MARKER MOVEMENT ──
@@ -471,11 +396,6 @@ function animateMarkerTo(busId, marker, toLatLng, duration = 900) {
     requestAnimationFrame(step);
 }
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 socket.on("busLocation", (data) => {
     const { busId, latitude, longitude } = data;
 
@@ -483,10 +403,6 @@ socket.on("busLocation", (data) => {
     renderLiveBusList();
 
     if (markers[busId]) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
         animateMarkerTo(busId, markers[busId], [latitude, longitude]);
     } else {
         markers[busId] = L.marker([latitude, longitude], { icon: busIcon(busId, busId === trackedBusId) })
@@ -495,16 +411,6 @@ socket.on("busLocation", (data) => {
         markers[busId].on("click", () => trackBus(busId));
 
         if (busId === trackedBusId) updateTrackingLine();
-<<<<<<< HEAD
-=======
-=======
-        markers[busId].setLatLng([latitude, longitude]);
-    } else {
-        markers[busId] = L.marker([latitude, longitude])
-            .addTo(map)
-            .bindPopup(escapeHtml(busId));
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
     }
 });
 
@@ -524,31 +430,24 @@ function showTopBar(text) {
     document.getElementById("topBarText").innerText = text;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 /* ── DEMO BUS ──
    Lets a passenger see the live-tracking feature (marker, moving bus,
    line + distance to their pickup point) immediately, without needing a
    second browser tab logged in as a driver actively sharing GPS. It feeds
    fake positions through the exact same liveBuses/markers/animateMarkerTo
-   pipeline a real bus uses, so "Track" behaves identically either way. */
+   pipeline a real bus uses, so "Track" behaves identically either way.
+   The bus's own movement follows a real road route (fetched once via
+   OSRM) rather than a straight line between a few waypoints, so it looks
+   like an actual bus driving rather than cutting through blocks. If the
+   routing service is unreachable, it falls back to simple waypoints. */
 const DEMO_BUS_ID = "DEMO-01";
-const demoPath = [
+const demoWaypoints = [
     [21.1959, 72.7933],
-    [21.1900, 72.8010],
-    [21.1850, 72.8090],
-    [21.1795, 72.8160],
-    [21.1750, 72.8230],
-    [21.1702, 72.8311],
-    [21.1750, 72.8230],
-    [21.1795, 72.8160],
-    [21.1850, 72.8090],
-    [21.1900, 72.8010]
+    [21.1702, 72.8311]
 ];
 let demoTimer = null;
 let demoStep = 0;
+let demoRoadPoints = null;
 
 function toggleDemoBus() {
     if (demoTimer) {
@@ -558,9 +457,9 @@ function toggleDemoBus() {
     }
 }
 
-function startDemoBus() {
+async function startDemoBus() {
     demoStep = 0;
-    const [lat, lng] = demoPath[0];
+    const [lat, lng] = demoWaypoints[0];
 
     liveBuses[DEMO_BUS_ID] = { busId: DEMO_BUS_ID, latitude: lat, longitude: lng };
     renderLiveBusList();
@@ -569,28 +468,56 @@ function startDemoBus() {
         .addTo(map)
         .bindPopup(`🚌 Bus ${DEMO_BUS_ID} (demo)`);
     markers[DEMO_BUS_ID].on("click", () => trackBus(DEMO_BUS_ID));
-
     map.setView([lat, lng], 14);
 
-    demoTimer = setInterval(() => {
-        demoStep = (demoStep + 1) % demoPath.length;
-        const [nLat, nLng] = demoPath[demoStep];
-
-        liveBuses[DEMO_BUS_ID] = { busId: DEMO_BUS_ID, latitude: nLat, longitude: nLng };
-        renderLiveBusList();
-        animateMarkerTo(DEMO_BUS_ID, markers[DEMO_BUS_ID], [nLat, nLng], 1300);
-    }, 1800);
-
     const btn = document.getElementById("demoBtn");
-    btn.textContent = "⏹ Stop Demo";
+    const restore = setButtonLoading(btn, "Loading road route…");
+
+    // Fetch a real road route once, then loop back and forth along it —
+    // this is what makes the demo bus follow actual streets instead of
+    // cutting a straight line across the map.
+    const route = await fetchOsrmRoute(demoWaypoints[0], demoWaypoints[demoWaypoints.length - 1]);
+    demoRoadPoints = route ? route.path.concat([...route.path].reverse()) : null;
+
+    restore();
+    btn.innerHTML = "⏹ Stop Demo";
     btn.classList.add("running");
 
-    showNotification("Demo bus is live — tap Track to see it in action", "success");
+    runDemoStep();
+
+    showNotification(
+        demoRoadPoints ? "Demo bus is live — following real roads!" : "Demo bus is live (road data unavailable right now)",
+        "success"
+    );
+}
+
+function runDemoStep() {
+    let nextLatLng, stepDelayMs;
+
+    if (demoRoadPoints && demoRoadPoints.length > 1) {
+        demoStep = (demoStep + 1) % demoRoadPoints.length;
+        nextLatLng = demoRoadPoints[demoStep];
+        // Keep one full loop taking roughly 30s no matter how many points
+        // OSRM returned, while keeping each step comfortably visible.
+        stepDelayMs = Math.max(150, Math.min(600, 30000 / demoRoadPoints.length));
+    } else {
+        demoStep = (demoStep + 1) % demoWaypoints.length;
+        nextLatLng = demoWaypoints[demoStep];
+        stepDelayMs = 1800;
+    }
+
+    liveBuses[DEMO_BUS_ID] = { busId: DEMO_BUS_ID, latitude: nextLatLng[0], longitude: nextLatLng[1] };
+    renderLiveBusList();
+    animateMarkerTo(DEMO_BUS_ID, markers[DEMO_BUS_ID], nextLatLng, Math.round(stepDelayMs * 0.85));
+
+    demoTimer = setTimeout(runDemoStep, stepDelayMs);
 }
 
 function stopDemoBus() {
-    clearInterval(demoTimer);
+    clearTimeout(demoTimer);
     demoTimer = null;
+    demoRoadPoints = null;
+    demoStep = 0;
 
     if (markers[DEMO_BUS_ID]) { map.removeLayer(markers[DEMO_BUS_ID]); delete markers[DEMO_BUS_ID]; }
     delete liveBuses[DEMO_BUS_ID];
@@ -599,16 +526,12 @@ function stopDemoBus() {
     renderLiveBusList();
 
     const btn = document.getElementById("demoBtn");
+    btn.disabled = false;
     btn.textContent = "▶ Try Demo";
     btn.classList.remove("running");
 }
 
 /* ── ROUTES ── */
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d82fec0cf0f0cb13f4e211ca70e31157e4c2a59f
->>>>>>> 44e94aa5cfe6a59e671d65907059d16efea4bde3
 async function loadRoutes() {
     const container = document.getElementById("routeList");
 

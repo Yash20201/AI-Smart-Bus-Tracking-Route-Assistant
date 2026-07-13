@@ -143,7 +143,7 @@ function renderNav(active) {
     const links = [
         { href: "dashboard.html", label: "Dashboard", icon: "📊" },
         { href: "buses.html",     label: "Buses",     icon: "🚌" },
-        { href: "drivers.html",   label: "Drivers",   icon: "🧑‍✈️" },
+        { href: "drivers.html",   label: "Drivers",   icon: "🧑" },
         { href: "routes.html",    label: "Routes",    icon: "🗺️" },
         { href: "trips.html",     label: "Trips",     icon: "📍" },
         { href: "users.html",     label: "Users",     icon: "👥" },
